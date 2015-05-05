@@ -184,7 +184,7 @@ class ConnectionPool(object):
         attempts = 0
         while True:
             try:
-                client = pymongo.MongoClient(url, safe=True)
+                client = pymongo.MongoClient(url)
             except pymongo.errors.ConnectionFailure as e:
                 if 0 <= max_retries <= attempts:
                     LOG.error(_('Unable to connect to the database after '
